@@ -3,7 +3,7 @@
 // -------------------------------------------------------------------------- //
 
 const state = {
-    activeTab: 'home',
+    activeTab: 'battle',
     highScore: parseInt(localStorage.getItem('skibidi_highscore') || '0'),
     synth: {
         pitch: 1.0,
@@ -80,10 +80,10 @@ document.querySelectorAll('.nav-link').forEach(link => {
 // Handle initial hash routing
 window.addEventListener('load', () => {
     const hash = window.location.hash.substring(1);
-    if (hash && ['home', 'battle', 'codex', 'soundboard', 'lore'].includes(hash)) {
+    if (hash && ['battle'].includes(hash)) {
         switchTab(hash);
     } else {
-        switchTab('home');
+        switchTab('battle');
     }
 });
 

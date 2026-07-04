@@ -32,11 +32,7 @@
             </button>
 
             <nav class="nav-links" id="mainNav">
-                <a href="#home" class="nav-link active" data-tab="home"><i class="fa-solid fa-house"></i> Home</a>
-                <a href="#battle" class="nav-link" data-tab="battle"><i class="fa-solid fa-gamepad"></i> Battle Arcade</a>
-                <a href="#codex" class="nav-link" data-tab="codex"><i class="fa-solid fa-shield-halved"></i> Codex</a>
-                <a href="#soundboard" class="nav-link" data-tab="soundboard"><i class="fa-solid fa-volume-high"></i> Soundboard</a>
-                <a href="#lore" class="nav-link" data-tab="lore"><i class="fa-solid fa-scroll"></i> Lore Timeline</a>
+                <a href="#battle" class="nav-link active" data-tab="battle"><i class="fa-solid fa-gamepad"></i> Game</a>
             </nav>
         </div>
     </header>
@@ -44,54 +40,7 @@
     <!-- Main Container -->
     <main class="content-container">
         
-        <!-- SECTION 1: HOME / HERO -->
-        <section id="home" class="tab-content active-section">
-            <div class="hero-wrapper" style="background-image: linear-gradient(rgba(10, 10, 15, 0.75), rgba(10, 10, 15, 0.95)), url('assets/hero_bg.jpg');">
-                <div class="hero-content">
-                    <div class="faction-badges">
-                        <span class="badge badge-cameraman"><i class="fa-solid fa-video"></i> The Alliance</span>
-                        <span class="badge-vs">VS</span>
-                        <span class="badge badge-toilet"><i class="fa-solid fa-toilet"></i> Toilets</span>
-                    </div>
-                    <h1 class="hero-title animate-title">
-                        THE ULTIMATE<br>
-                        <span class="glow-text">SKIBIDI WARZONE</span>
-                    </h1>
-                    <p class="hero-subtitle">
-                        Step into the frontline of the clash of the century. Choose your side, defend the city in our interactive Arcade Game, unleash iconic battle cries on the Soundboard, and study the titans of the Skibidi universe.
-                    </p>
-                    <div class="hero-actions">
-                        <button class="btn btn-primary" onclick="switchTab('battle')">
-                            <i class="fa-solid fa-circle-play"></i> Start Arcade Battle
-                        </button>
-                        <button class="btn btn-secondary" onclick="switchTab('codex')">
-                            <i class="fa-solid fa-book-open"></i> Browse Codex
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Live Status Dashboard -->
-                <div class="live-status-panel">
-                    <h3 class="panel-title"><i class="fa-solid fa-tower-broadcast animate-pulse"></i> Battlefield Intel</h3>
-                    <div class="intel-grid">
-                        <div class="intel-item">
-                            <span class="intel-label">War Status</span>
-                            <span class="intel-val val-danger">CRITICAL SECTOR 7</span>
-                        </div>
-                        <div class="intel-item">
-                            <span class="intel-label">Alliance Strengths</span>
-                            <span class="intel-val val-primary">TITANS ACTIVE</span>
-                        </div>
-                        <div class="intel-item">
-                            <span class="intel-label">Toilet Invasion Threat</span>
-                            <span class="intel-val val-warning">LEVEL 9 (CLASS G)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 2: BATTLE ARCADE -->
+        <!-- SECTION 1: BATTLE ARCADE -->
         <section id="battle" class="tab-content">
             <div class="section-header">
                 <h2 class="section-title">Battle <span class="glow-text">Arcade</span></h2>
