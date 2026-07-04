@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Skibidi Toilet: Warzone | Interactive Arcade & Codex</title>
+    <meta name="description" content="Immersive Skibidi Toilet vs. Cameramen (The Alliance) warzone web experience. Play the battle arcade, explore character stats, trigger the soundboard, and follow the epic lore timeline.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="cyber-dark">
+    <!-- Background Ambient Grid -->
+    <div class="bg-grid-overlay"></div>
+    <div class="radial-glow"></div>
+
+    <!-- Navigation Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo" id="navLogo">
+                <span class="logo-skibidi">SKIBIDI</span>
+                <span class="logo-warzone">WARZONE</span>
+            </a>
+            
+            <button class="mobile-nav-toggle" aria-label="Toggle menu" id="mobileNavToggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="nav-links" id="mainNav">
+                <a href="#home" class="nav-link active" data-tab="home"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="#battle" class="nav-link" data-tab="battle"><i class="fa-solid fa-gamepad"></i> Battle Arcade</a>
+                <a href="#codex" class="nav-link" data-tab="codex"><i class="fa-solid fa-shield-halved"></i> Codex</a>
+                <a href="#soundboard" class="nav-link" data-tab="soundboard"><i class="fa-solid fa-volume-high"></i> Soundboard</a>
+                <a href="#lore" class="nav-link" data-tab="lore"><i class="fa-solid fa-scroll"></i> Lore Timeline</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="content-container">
+        
+        <!-- SECTION 1: HOME / HERO -->
+        <section id="home" class="tab-content active-section">
+            <div class="hero-wrapper" style="background-image: linear-gradient(rgba(10, 10, 15, 0.75), rgba(10, 10, 15, 0.95)), url('assets/hero_bg.jpg');">
+                <div class="hero-content">
+                    <div class="faction-badges">
+                        <span class="badge badge-cameraman"><i class="fa-solid fa-video"></i> The Alliance</span>
+                        <span class="badge-vs">VS</span>
+                        <span class="badge badge-toilet"><i class="fa-solid fa-toilet"></i> Toilets</span>
+                    </div>
+                    <h1 class="hero-title animate-title">
+                        THE ULTIMATE<br>
+                        <span class="glow-text">SKIBIDI WARZONE</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Step into the frontline of the clash of the century. Choose your side, defend the city in our interactive Arcade Game, unleash iconic battle cries on the Soundboard, and study the titans of the Skibidi universe.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" onclick="switchTab('battle')">
+                            <i class="fa-solid fa-circle-play"></i> Start Arcade Battle
+                        </button>
+                        <button class="btn btn-secondary" onclick="switchTab('codex')">
+                            <i class="fa-solid fa-book-open"></i> Browse Codex
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Status Dashboard -->
+                <div class="live-status-panel">
+                    <h3 class="panel-title"><i class="fa-solid fa-tower-broadcast animate-pulse"></i> Battlefield Intel</h3>
+                    <div class="intel-grid">
+                        <div class="intel-item">
+                            <span class="intel-label">War Status</span>
+                            <span class="intel-val val-danger">CRITICAL SECTOR 7</span>
+                        </div>
+                        <div class="intel-item">
+                            <span class="intel-label">Alliance Strengths</span>
+                            <span class="intel-val val-primary">TITANS ACTIVE</span>
+                        </div>
+                        <div class="intel-item">
+                            <span class="intel-label">Toilet Invasion Threat</span>
+                            <span class="intel-val val-warning">LEVEL 9 (CLASS G)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: BATTLE ARCADE -->
+        <section id="battle" class="tab-content">
+            <div class="section-header">
+                <h2 class="section-title">Battle <span class="glow-text">Arcade</span></h2>
+                <p class="section-subtitle">Defend the grid from invading Skibidi Toilets. Upgrade your core, flush the G-Man Toilet boss, and survive the onslaught!</p>
+            </div>
+
+            <div class="game-wrapper">
+                <div class="game-container-outer">
+                    <!-- Canvas Game View -->
+                    <div class="game-viewport" id="gameViewport">
+                        <canvas id="gameCanvas"></canvas>
+                        
+                        <!-- Overlay: Start / Game Over / Pause -->
+                        <div class="game-overlay" id="gameOverlay">
+                            <div class="overlay-card glass-panel">
+                                <h2 class="overlay-title" id="overlayTitle">SKIBIDI DEFENDER</h2>
+                                <p class="overlay-desc" id="overlayDesc">Use WASD or Arrows to move. Press SPACE or click to shoot. Avoid colliding with toilets and dodge G-Man lasers!</p>
+                                <button class="btn btn-primary btn-large" id="startGameBtn">
+                                    <i class="fa-solid fa-play"></i> START BATTLE
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Touch Controls Overlay (Android/iOS only, visible on touch devices) -->
+                        <div class="touch-controls-overlay" id="touchControls">
+                            <div class="touch-joystick-container" id="joystickZone">
+                                <div class="joystick-ring">
+                                    <div class="joystick-handle" id="joystickHandle"></div>
+                                </div>
+                            </div>
+                            <div class="touch-action-container">
+                                <button class="btn-action-shoot" id="btnTouchShoot" aria-label="Shoot Laser">
+                                    <i class="fa-solid fa-crosshairs"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game Sidebar (Stats & Upgrades) -->
+                    <div class="game-sidebar glass-panel">
+                        <h3 class="sidebar-title"><i class="fa-solid fa-chart-bar"></i> Battle Log</h3>
+                        <div class="stat-row">
+                            <span>Score:</span>
+                            <span id="scoreVal" class="text-glow">0</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>High Score:</span>
+                            <span id="highScoreVal" class="text-glow-purple">0</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>Level:</span>
+                            <span id="levelVal">1</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>Alliance Shield:</span>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar-fill" id="shieldBar" style="width: 100%;"></div>
+                            </div>
+                        </div>
+
+                        <hr class="separator">
+
+                        <h3 class="sidebar-title"><i class="fa-solid fa-bolt"></i> Upgrades</h3>
+                        <div class="upgrade-list">
+                            <div class="upgrade-item locked" id="upgradeDbl">
+                                <div class="upgrade-info">
+                                    <span class="upgrade-name">Double Laser</span>
+                                    <span class="upgrade-cost">Cost: 15 Cores</span>
+                                </div>
+                                <span class="upgrade-status">Locked</span>
+                            </div>
+                            <div class="upgrade-item locked" id="upgradeTrpl">
+                                <div class="upgrade-info">
+                                    <span class="upgrade-name">Triple Laser</span>
+                                    <span class="upgrade-cost">Cost: 35 Cores</span>
+                                </div>
+                                <span class="upgrade-status">Locked</span>
+                            </div>
+                             <div class="upgrade-item locked" id="upgradeDrone">
+                                <div class="upgrade-info">
+                                    <span class="upgrade-name">Support Drone</span>
+                                    <span class="upgrade-cost">Cost: 25 Cores</span>
+                                </div>
+                                <span class="upgrade-status">Locked</span>
+                            </div>
+                            <div class="upgrade-item locked" id="upgradeShield">
+                                <div class="upgrade-info">
+                                    <span class="upgrade-name">Recharge Shield</span>
+                                    <span class="upgrade-cost">Cost: 10 Cores</span>
+                                </div>
+                                <span class="upgrade-status">Locked</span>
+                            </div>
+                        </div>
+                        <div class="cores-container">
+                            <i class="fa-solid fa-microchip val-primary animate-pulse"></i> Collected Cores: <span id="coresVal">0</span>
+                        </div>
+
+                        <hr class="separator">
+
+                        <h3 class="sidebar-title"><i class="fa-solid fa-crosshairs"></i> GM Mode</h3>
+                        <div class="gm-access-panel" style="display:flex; gap:10px; align-items:center; margin-bottom:12px; flex-wrap:wrap;">
+                            <input id="gmPasswordInput" type="password" placeholder="GM password" style="flex:1; min-width:160px; padding:10px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.12); background:rgba(255,255,255,0.05); color:#fff; outline:none;">
+                            <button class="btn btn-secondary" id="gmAccessSubmit" style="padding:10px 16px;">Unlock</button>
+                            <span id="gmAccessStatus" class="upgrade-status text-glow-red">LOCKED</span>
+                        </div>
+                        <div class="upgrade-list">
+                            <div class="upgrade-item available" id="btnAimbotToggle" style="cursor: pointer; background: rgba(255, 0, 85, 0.05); border-color: rgba(255, 0, 85, 0.2);">
+                                <div class="upgrade-info">
+                                    <span class="upgrade-name">Core Auto-Target</span>
+                                    <span class="upgrade-cost">Locks blasters on nearest toilet</span>
+                                </div>
+                                <span class="upgrade-status text-glow-red" id="aimbotStatusVal">OFF</span>
+                            </div>
+                            <div class="upgrade-item available" id="btnAutofireToggle" style="cursor: pointer; background: rgba(255, 0, 85, 0.05); border-color: rgba(255, 0, 85, 0.2);">
+                                <div class="upgrade-info">
+                                    <span class="upgrade-name">Auto-Fire System</span>
+                                    <span class="upgrade-cost">Autonomously shoots blasters</span>
+                                </div>
+                                <span class="upgrade-status text-glow-red" id="autofireStatusVal">OFF</span>
+                            </div>
+                            <div class="upgrade-item available" id="btnAutomoveToggle" style="cursor: pointer; background: rgba(255, 0, 85, 0.05); border-color: rgba(255, 0, 85, 0.2);">
+                                <div class="upgrade-info">
+                                    <span class="upgrade-name">AFK Autopilot Move</span>
+                                    <span class="upgrade-cost">Autonomously tracks targets</span>
+                                </div>
+                                <span class="upgrade-status text-glow-red" id="automoveStatusVal">OFF</span>
+                            </div>
+                            <div class="upgrade-item available" id="btnAutoFlightToggle" style="cursor: pointer; background: rgba(255, 0, 85, 0.05); border-color: rgba(255, 0, 85, 0.2);">
+                                <div class="upgrade-info">
+                                    <span class="upgrade-name">Auto Flight</span>
+                                    <span class="upgrade-cost">Automatic flight with dodge guidance</span>
+                                </div>
+                                <span class="upgrade-status text-glow-red" id="autoFlightStatusVal">OFF</span>
+                            </div>
+                            <div class="upgrade-item available" id="btnGodModeToggle" style="cursor: pointer; background: rgba(255, 0, 85, 0.05); border-color: rgba(255, 0, 85, 0.2);">
+                                <div class="upgrade-info">
+                                    <span class="upgrade-name">God Mode</span>
+                                    <span class="upgrade-cost">Immune to all damage</span>
+                                </div>
+                                <span class="upgrade-status text-glow-red" id="godModeStatusVal">OFF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: FACTION CODEX -->
+        <section id="codex" class="tab-content">
+            <div class="section-header">
+                <h2 class="section-title">Faction <span class="glow-text">Codex</span></h2>
+                <p class="section-subtitle">Study the profiles, combat power, and abilities of the primary combatants in the war.</p>
+            </div>
+
+            <!-- Codex Filters -->
+            <div class="codex-filters">
+                <button class="filter-btn active" data-filter="all">All Forces</button>
+                <button class="filter-btn" data-filter="alliance">The Alliance</button>
+                <button class="filter-btn" data-filter="toilets">Toilets Faction</button>
+            </div>
+
+            <!-- Codex Cards Grid -->
+            <div class="codex-grid">
+                <!-- Card 1: Titan Cameraman -->
+                <div class="codex-card glass-panel" data-faction="alliance">
+                    <div class="card-image-wrapper">
+                        <img src="assets/titan_cameraman.jpg" alt="Titan Cameraman" class="card-img">
+                        <span class="faction-tag alliance-tag">Cameramen</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title text-glow">Titan Cameraman</h3>
+                        <p class="card-description">The main powerhouse of the Cameraman Alliance. Features a reinforced steel frame, glowing blue reactor core, jetpack thrusters, and dual-arm blasters.</p>
+                        <div class="stat-bars">
+                            <div class="stat-bar-item">
+                                <span class="stat-name">Attack Power</span>
+                                <div class="stat-track"><div class="stat-fill" style="width: 95%;"></div></div>
+                            </div>
+                            <div class="stat-bar-item">
+                                <span class="stat-name">Defense Integrity</span>
+                                <div class="stat-track"><div class="stat-fill" style="width: 90%;"></div></div>
+                            </div>
+                            <div class="stat-bar-item">
+                                <span class="stat-name">Tactical Speed</span>
+                                <div class="stat-track"><div class="stat-fill" style="width: 75%;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: G-Man Toilet -->
+                <div class="codex-card glass-panel" data-faction="toilets">
+                    <div class="card-image-wrapper">
+                        <img src="assets/gman_toilet.jpg" alt="G-Man Toilet" class="card-img">
+                        <span class="faction-tag toilet-tag">Toilet Leader</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title text-glow-red">G-Man Toilet</h3>
+                        <p class="card-description">The supreme commander of the Skibidi Toilets. Equipped with massive laser eye-beams, armored noise-cancelling headphones, and a giant hovering porcelain base.</p>
+                        <div class="stat-bars">
+                            <div class="stat-bar-item">
+                                <span class="stat-name">Attack Power</span>
+                                <div class="stat-track"><div class="stat-fill" style="width: 98%; background: var(--neon-red);"></div></div>
+                            </div>
+                            <div class="stat-bar-item">
+                                <span class="stat-name">Defense Integrity</span>
+                                <div class="stat-track"><div class="stat-fill" style="width: 92%; background: var(--neon-red);"></div></div>
+                            </div>
+                            <div class="stat-bar-item">
+                                <span class="stat-name">Tactical Speed</span>
+                                <div class="stat-track"><div class="stat-fill" style="width: 60%; background: var(--neon-red);"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Titan Speakerman -->
+                <div class="codex-card glass-panel" data-faction="alliance">
+                    <div class="card-image-wrapper">
+                        <div class="placeholder-card-img speakerman-bg">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </div>
+                        <span class="faction-tag alliance-tag">Speakermen</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title text-glow">Titan Speakerman</h3>
+                        <p class="card-description">Agile and sonic-powered. Unleashes catastrophic soundwave blasts from his shoulder-mounted speakers and uses rapid-fire plasma blasters in close-quarters.</p>
+                        <div class="stat-bars">
+                            <div class="stat-bar-item">
+                                <span class="stat-name">Attack Power</span>
+                                <div class="stat-track"><div class="stat-fill" style="width: 88%;"></div></div>
+                            </div>
+                            <div class="stat-bar-item">
+                                <span class="stat-name">Defense Integrity</span>
+                                <div class="stat-track"><div class="stat-fill" style="width: 80%;"></div></div>
+                            </div>
+                            <div class="stat-bar-item">
+                                <span class="stat-name">Tactical Speed</span>
+                                <div class="stat-track"><div class="stat-fill" style="width: 95%;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Titan TV Man -->
+                <div class="codex-card glass-panel" data-faction="alliance">
+                    <div class="card-image-wrapper">
+                        <div class="placeholder-card-img tvman-bg">
+                            <i class="fa-solid fa-tv"></i>
+                        </div>
+                        <span class="faction-tag alliance-tag">TV Men</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title text-glow-purple">Titan TV Man</h3>
+                        <p class="card-description">Hypnotic and teleporting. Projects specialized screening light to disable or possess Skibidi Toilets while wielding energy claws and detachable screens.</p>
+                        <div class="stat-bars">
+                            <div class="stat-bar-item">
+                                <span class="stat-name">Attack Power</span>
+                                <div class="stat-track"><div class="stat-fill" style="width: 96%; background: var(--neon-violet);"></div></div>
+                            </div>
+                            <div class="stat-bar-item">
+                                <span class="stat-name">Defense Integrity</span>
+                                <div class="stat-track"><div class="stat-fill" style="width: 88%; background: var(--neon-violet);"></div></div>
+                            </div>
+                            <div class="stat-bar-item">
+                                <span class="stat-name">Tactical Speed</span>
+                                <div class="stat-track"><div class="stat-fill" style="width: 82%; background: var(--neon-violet);"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: SOUNDBOARD -->
+        <section id="soundboard" class="tab-content">
+            <div class="section-header">
+                <h2 class="section-title">Skibidi <span class="glow-text">DJ Station</span></h2>
+                <p class="section-subtitle">Play synthesized battle sound effects from both factions. Mix and sequence real-time audio clips.</p>
+            </div>
+
+            <div class="soundboard-container">
+                <!-- Soundboard Matrix -->
+                <div class="sound-grid">
+                    <button class="sound-pad pad-toilet" data-sound="skibidi-theme" id="btnSkibidi">
+                        <span class="pad-icon"><i class="fa-solid fa-music"></i></span>
+                        <span class="pad-name">Skibidi Theme</span>
+                        <span class="pad-desc">Bumpy synth tune</span>
+                    </button>
+                    <button class="sound-pad pad-toilet" data-sound="toilet-flush" id="btnFlush">
+                        <span class="pad-icon"><i class="fa-solid fa-water"></i></span>
+                        <span class="pad-name">Toilet Flush</span>
+                        <span class="pad-desc">Vortex swoosh</span>
+                    </button>
+                    <button class="sound-pad pad-alliance" data-sound="laser-blast" id="btnLaser">
+                        <span class="pad-icon"><i class="fa-solid fa-bolt"></i></span>
+                        <span class="pad-name">Laser Blast</span>
+                        <span class="pad-desc">High pitch zap</span>
+                    </button>
+                    <button class="sound-pad pad-alliance" data-sound="speaker-bass" id="btnBass">
+                        <span class="pad-icon"><i class="fa-solid fa-volume-off"></i></span>
+                        <span class="pad-name">Sonic Boom</span>
+                        <span class="pad-desc">Deep sub bass</span>
+                    </button>
+                    <button class="sound-pad pad-alliance" data-sound="tv-static" id="btnStatic">
+                        <span class="pad-icon"><i class="fa-solid fa-tv"></i></span>
+                        <span class="pad-name">TV Static Hum</span>
+                        <span class="pad-desc">Hypnotic screen wave</span>
+                    </button>
+                    <button class="sound-pad pad-toilet" data-sound="toilet-laugh" id="btnLaugh">
+                        <span class="pad-icon"><i class="fa-solid fa-face-laugh-squint"></i></span>
+                        <span class="pad-name">G-Man Laugh</span>
+                        <span class="pad-desc">Low robotic chuckle</span>
+                    </button>
+                </div>
+
+                <!-- Synth Dashboard -->
+                <div class="synth-dashboard glass-panel">
+                    <h3 class="panel-title"><i class="fa-solid fa-sliders"></i> Audio Customizer</h3>
+                    <div class="synth-controls">
+                        <div class="control-slider-group">
+                            <label for="synthPitch">Synthesizer Pitch: <span id="pitchVal">1.0x</span></label>
+                            <input type="range" id="synthPitch" min="0.2" max="2.5" step="0.1" value="1.0" class="custom-slider">
+                        </div>
+                        <div class="control-slider-group">
+                            <label for="synthVolume">Output Volume: <span id="volumeVal">80%</span></label>
+                            <input type="range" id="synthVolume" min="0" max="1" step="0.05" value="0.8" class="custom-slider">
+                        </div>
+                    </div>
+                    <div class="visualizer-container">
+                        <canvas id="audioVisualizer"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: LORE TIMELINE -->
+        <section id="lore" class="tab-content">
+            <div class="section-header">
+                <h2 class="section-title">The Warzone <span class="glow-text">Timeline</span></h2>
+                <p class="section-subtitle">Trace the historical milestones of the epic clash, from the initial invasion to the modern titan battles.</p>
+            </div>
+
+            <!-- Lore Vertical Timeline -->
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item left-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-panel">
+                        <span class="timeline-date">Phase 1: Episode 1-10</span>
+                        <h3 class="timeline-title">The Porcelain Invasion</h3>
+                        <p class="timeline-description">Skibidi Toilets emerge mysteriously in metropolitan centers, catching humanity off guard. Conventional defenses crumble as their hypnotic singing spreads the toilet virus, converting civilians.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item right-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-panel">
+                        <span class="timeline-date">Phase 2: Episode 11-25</span>
+                        <h3 class="timeline-title">Rise of the Alliance</h3>
+                        <p class="timeline-description">The Cameramen Faction forms, organizing a cybernetic resistance force. Armed with specialized lenses and heavy weaponry, they push back and establish secure zones, capturing toilets for study.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item left-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-panel">
+                        <span class="timeline-date">Phase 3: Episode 26-50</span>
+                        <h3 class="timeline-title">Titan Warfare</h3>
+                        <p class="timeline-description">The conflict escalates with the deployment of Titan units. G-Man Toilet commands armored forces, while the Alliance deploys Titan Cameraman and Titan Speakerman. Mega battles destroy entire city districts.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item right-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-panel">
+                        <span class="timeline-date">Phase 4: Episode 51+</span>
+                        <h3 class="timeline-title">The Hypnotic Grid</h3>
+                        <p class="timeline-description">TV Men debut, introducing teleportation and projection technologies. G-Man Toilet upgrades to cybernetic armor with dual weapon mounts, triggering the current active, high-intensity deadlock.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- App Footer -->
+    <footer class="app-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Skibidi Toilet Warzone Fan Experience. Designed with Vanilla HTML5, CSS3 & Javascript.</p>
+            <div class="footer-icons">
+                <i class="fa-solid fa-code text-glow"></i>
+                <i class="fa-solid fa-shield-halved text-glow-purple"></i>
+                <i class="fa-solid fa-gamepad text-glow-green"></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Script -->
+    <script src="app.js"></script>
+</body>
+</html>
