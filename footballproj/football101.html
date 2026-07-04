@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ฟุตบอล 101 — เข้าใจบอลใน 5 นาที</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="football101.css">
+</head>
+<body>
+<div class="pitch-bg"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <svg class="pitch-lines" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+    <rect x="20" y="20" width="760" height="460" fill="none" stroke="rgba(244,247,239,0.35)" stroke-width="2"/>
+    <line x1="400" y1="20" x2="400" y2="480" stroke="rgba(244,247,239,0.35)" stroke-width="2"/>
+    <circle cx="400" cy="250" r="70" fill="none" stroke="rgba(244,247,239,0.35)" stroke-width="2"/>
+    <circle cx="400" cy="250" r="3" fill="rgba(244,247,239,0.5)"/>
+    <rect x="20" y="150" width="90" height="200" fill="none" stroke="rgba(244,247,239,0.35)" stroke-width="2"/>
+    <rect x="690" y="150" width="90" height="200" fill="none" stroke="rgba(244,247,239,0.35)" stroke-width="2"/>
+  </svg>
+  <div class="hero-content">
+    <div class="eyebrow">คู่มือดูบอลฉบับคนไม่รู้เรื่อง</div>
+    <h1>เข้าใจ<span>ฟุตบอล</span><br>ใน 5 นาที</h1>
+    <p>ไม่ต้องรู้ชื่อนักเตะสักคน ก็เชียร์บอลโลกกับเพื่อนได้ทัน — เล่นยังไง ชนะยังไง ฟาวล์คืออะไร ทำไมถึงล้ำหน้า และใบเหลืองใบแดงต่างกันตรงไหน อ่านจบ ดูจอแล้วเข้าใจทันที</p>
+    <div class="kickoff-stats">
+      <div class="kickoff-stat"><div class="num">90</div><div class="lbl">นาทีต่อแมตช์</div></div>
+      <div class="kickoff-stat"><div class="num">11</div><div class="lbl">คนต่อทีมในสนาม</div></div>
+      <div class="kickoff-stat"><div class="num">1</div><div class="lbl">ลูกบอลบนสนาม</div></div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>เลื่อนลง</span><div class="arrow"></div></div>
+</section>
+
+<!-- HOW TO PLAY & WIN -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-tag">พื้นฐานสุด ๆ</div>
+      <h2 class="section-title">เล่นยังไง แล้วชนะยังไง</h2>
+      <p class="section-sub">สองทีม เป้าหมายเดียวกัน: เอาลูกบอลเข้าประตูฝั่งตรงข้ามให้ได้มากกว่า</p>
+    </div>
+
+    <div class="goal-split reveal">
+      <div class="goal-card">
+        <h3><span class="icon">🥅</span>วิธีเล่น</h3>
+        <p>แต่ละทีมส่งผู้เล่น <b>11 คน</b> ลงสนามพร้อมกัน (รวมผู้รักษาประตู 1 คนที่ใช้มือได้เฉพาะในกรอบเขตโทษของตัวเอง) ผู้เล่นที่เหลือห้ามใช้มือหรือแขนสัมผัสบอลโดยเจตนา ต้องใช้เท้า หัว หรือลำตัวส่วนอื่นแทน</p>
+        <p>เกมแบ่งเป็น <b>2 ครึ่ง ครึ่งละ 45 นาที</b> พักครึ่งเวลา 15 นาที และมักมี "ทดเวลาบาดเจ็บ" ต่อท้ายแต่ละครึ่งตามเวลาที่เสียไประหว่างเกม (เปลี่ยนตัว รักษาอาการบาดเจ็บ ฯลฯ)</p>
+      </div>
+      <div class="goal-card">
+        <h3><span class="icon">🏆</span>วิธีชนะ</h3>
+        <p>ทีมที่ยิงประตูได้ <b>มากกว่า</b> เมื่อจบเกมคือผู้ชนะ ถ้าเสมอกันในการแข่งขันแบบลีก เกมจะจบแบบเสมอไปเลย แต่ถ้าเป็นรอบน็อกเอาต์ที่ต้องมีผู้ชนะ จะต่อเวลาพิเศษอีก 2 ครึ่ง ครึ่งละ 15 นาที</p>
+        <p>ถ้ายังเสมออยู่หลังต่อเวลา จะตัดสินด้วย <b>การดวลจุดโทษ</b> (ยิงจุดโทษสลับทีมทีละคน) ทีมที่ยิงเข้ามากกว่าคือผู้ชนะ</p>
+      </div>
+    </div>
+
+    <div class="field-note reveal">
+      <b>ในสนาม:</b> ทีมเลือกใช้แผนการเล่นและตำแหน่งเองได้อิสระ ปกติจะแบ่งเป็นแนวรับ (กองหลัง) แนวกลาง (กองกลาง) และแนวรุก (กองหน้า) โดยไม่มีกฎบังคับว่าใครต้องยืนตรงไหน ต่างจากกีฬาบางประเภทที่มีตำแหน่งตายตัว
+    </div>
+  </div>
+</section>
+
+<!-- QUICK FACTS SCOREBOARD -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-tag">ตัวเลขที่ควรรู้</div>
+      <h2 class="section-title">สนามและลูกบอลขนาดมาตรฐาน</h2>
+    </div>
+    <div class="scoreboard reveal">
+      <div class="flip-card"><div class="value">105<span class="unit">ม.</span></div><div class="label">ความยาวสนาม (มาตรฐานแข่งขันระดับนานาชาติ)</div></div>
+      <div class="flip-card"><div class="value">68<span class="unit">ม.</span></div><div class="label">ความกว้างสนาม</div></div>
+      <div class="flip-card"><div class="value">68–70<span class="unit">ซม.</span></div><div class="label">เส้นรอบวงลูกฟุตบอล (เบอร์ 5)</div></div>
+      <div class="flip-card"><div class="value">410–450<span class="unit">ก.</span></div><div class="label">น้ำหนักลูกฟุตบอลก่อนเริ่มแข่ง</div></div>
+    </div>
+    <div class="field-note reveal" style="margin-top:24px;">
+      ขนาดสนามจริงยืดหยุ่นได้ในช่วงที่ FIFA กำหนด (ยาว 100–110 ม. กว้าง 64–75 ม.) แต่สนามระดับทีมชาติและฟุตบอลโลกมักใช้ขนาดมาตรฐาน 105×68 เมตรเป็นหลัก
+    </div>
+  </div>
+</section>
+
+<!-- EVENT TICKER: FOUL / OFFSIDE / CARDS -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-tag">จับตาสนาม</div>
+      <h2 class="section-title">เหตุการณ์ที่เจอบ่อยที่สุดในเกม</h2>
+      <p class="section-sub">เรียงตามสิ่งที่มักได้ยินกรรมการเป่านกหวีดบ่อย ๆ ระหว่างแมตช์</p>
+    </div>
+
+    <div class="ticker">
+      <div class="event foul reveal">
+        <div class="event-badge">🦵</div>
+        <div class="tag">เป่าบ่อยที่สุด</div>
+        <h4>ฟาวล์ (Foul)</h4>
+        <p>เกิดขึ้นเมื่อผู้เล่นทำผิดกติกาใส่คู่แข่ง เช่น <b>เข้าสกัดแรงเกินไป ดึงเสื้อ ผลัก ใช้มือ/แขนเล่นบอลโดยตั้งใจ</b> กรรมการจะให้ฝ่ายที่โดนกระทำได้ "เตะฟรีคิก" เพื่อเริ่มเล่นใหม่</p>
+        <p>ถ้าฟาวล์เกิด <b>ในกรอบเขตโทษของทีมตัวเอง</b> จะกลายเป็น "จุดโทษ (เพนนัลตี้)" ทันที ซึ่งเป็นโอกาสยิงประตูที่ได้เปรียบมากที่สุดในเกม</p>
+      </div>
+
+      <div class="event offside reveal">
+        <div class="event-badge">🚩</div>
+        <div class="tag">งงที่สุด</div>
+        <h4>ล้ำหน้า (Offside)</h4>
+        <p>ผู้เล่นจะ "ล้ำหน้า" ถ้าตอนเพื่อนร่วมทีมส่งบอลมาให้ เขายืนอยู่ <b>ใกล้เส้นประตูฝั่งคู่แข่งมากกว่าทั้งลูกบอลและผู้เล่นฝ่ายรับคนรองสุดท้าย</b> (ปกติคือกองหลังคนสุดท้ายก่อนผู้รักษาประตู)</p>
+        <p>พูดง่าย ๆ คือห้าม "ดักหน้า" รอบอลอยู่หลังแนวรับทั้งหมดเพียงลำพัง กติกานี้ใช้เฉพาะตอนเพื่อนส่งบอลมาให้เท่านั้น ไม่รวมจังหวะทุ่ม เตะจากประตู หรือเตะมุม</p>
+      </div>
+
+      <div class="event yellow reveal">
+        <div class="event-badge">🟨</div>
+        <div class="tag">ใบเตือน</div>
+        <h4>ใบเหลือง (Yellow Card)</h4>
+        <p>คือ "คำเตือน" อย่างเป็นทางการ ให้เมื่อทำฟาวล์รุนแรงระดับหนึ่ง เถียงกรรมการ ถ่วงเวลา หรือทำผิดกติกาซ้ำ ๆ ผู้เล่นยังเล่นต่อได้ตามปกติ</p>
+        <p>แต่ถ้าผู้เล่นคนเดิม <b>โดนใบเหลืองใบที่สอง</b> ในแมตช์เดียวกัน จะกลายเป็นใบแดงอัตโนมัติและถูกไล่ออกจากสนามทันที</p>
+      </div>
+
+      <div class="event red reveal">
+        <div class="event-badge">🟥</div>
+        <div class="tag">รุนแรงสุด</div>
+        <h4>ใบแดง (Red Card)</h4>
+        <p>ให้กับการทำผิดร้ายแรง เช่น <b>เล่นรุนแรงเสี่ยงอันตราย ทำร้ายร่างกาย พูดจาหยาบคาย</b> หรือทำฟาวล์ขัดขวางจังหวะทำประตูชัด ๆ ของฝ่ายตรงข้าม</p>
+        <p>ผู้เล่นที่โดนใบแดงต้อง <b>ออกจากสนามทันที</b> และทีมนั้นเล่นต่อด้วยจำนวนคนที่น้อยลงไปตลอดเกม ไม่สามารถส่งใครลงแทนได้</p>
+      </div>
+
+      <div class="event pen reveal">
+        <div class="event-badge">🎯</div>
+        <div class="tag">โอกาสทอง</div>
+        <h4>จุดโทษ (Penalty)</h4>
+        <p>เกิดเมื่อฝ่ายรับทำฟาวล์ในกรอบเขตโทษของตัวเอง ผู้เล่นฝ่ายรุก 1 คนจะได้ยิงบอลตรงจากจุดที่ห่างประตู <b>11 เมตร</b> โดยมีแค่ผู้รักษาประตูมายืนกันเพียงคนเดียว ถือเป็นโอกาสยิงเข้าที่ง่ายที่สุดของเกม</p>
+      </div>
+
+      <div class="event restart reveal">
+        <div class="event-badge">🔁</div>
+        <div class="tag">กติกาย่อยที่เจอทุกแมตช์</div>
+        <h4>ทุ่ม เตะมุม เตะจากประตู</h4>
+        <p><b>ทุ่มข้างสนาม:</b> เมื่อบอลออกข้างสนาม ทีมตรงข้ามกับคนที่แตะบอลออกจะได้ทุ่มบอลด้วยสองมือจากจุดที่บอลออก</p>
+        <p><b>เตะมุม:</b> เมื่อฝ่ายรับเป็นคนแตะบอลออกหลังเส้นประตูฝั่งตัวเอง ฝ่ายรุกได้เตะจากมุมสนาม | <b>เตะจากประตู:</b> เมื่อฝ่ายรุกแตะบอลออกหลังเส้นประตู ฝ่ายรับได้เตะบอลออกจากกรอบเขตโทษของตัวเอง</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORLD CUP 2026 -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-tag">World Cup 2026</div>
+      <h2 class="section-title">ใครมีลุ้นแชมป์บอลโลกปีนี้</h2>
+      <p class="section-sub">เปอร์เซ็นต์โดยประมาณ อ้างอิงจากตลาดพนันและโมเดลพยากรณ์กีฬาหลายสำนัก ณ วันที่ 3–4 กรกฎาคม 2026 ช่วงเริ่มรอบ 16 ทีมสุดท้าย — ตัวเลขจะเปลี่ยนแปลงตลอดทัวร์นาเมนต์</p>
+    </div>
+
+    <div class="wc-board reveal">
+      <div class="wc-row">
+        <div class="wc-rank">1</div><div class="wc-flag">🇫🇷</div>
+        <div class="wc-name">ฝรั่งเศส</div>
+        <div class="wc-bar-track"><div class="wc-bar-fill" data-pct="32"></div></div>
+        <div class="wc-pct">~32%</div>
+      </div>
+      <div class="wc-row">
+        <div class="wc-rank">2</div><div class="wc-flag">🇦🇷</div>
+        <div class="wc-name">อาร์เจนตินา</div>
+        <div class="wc-bar-track"><div class="wc-bar-fill" data-pct="18"></div></div>
+        <div class="wc-pct">~18%</div>
+      </div>
+      <div class="wc-row">
+        <div class="wc-rank">3</div><div class="wc-flag">🇪🇸</div>
+        <div class="wc-name">สเปน</div>
+        <div class="wc-bar-track"><div class="wc-bar-fill" data-pct="15"></div></div>
+        <div class="wc-pct">~15%</div>
+      </div>
+      <div class="wc-row">
+        <div class="wc-rank">4</div><div class="wc-flag">🏴</div>
+        <div class="wc-name">อังกฤษ</div>
+        <div class="wc-bar-track"><div class="wc-bar-fill" data-pct="10"></div></div>
+        <div class="wc-pct">~10%</div>
+      </div>
+      <div class="wc-row">
+        <div class="wc-rank">5</div><div class="wc-flag">🇵🇹</div>
+        <div class="wc-name">โปรตุเกส</div>
+        <div class="wc-bar-track"><div class="wc-bar-fill" data-pct="8"></div></div>
+        <div class="wc-pct">~8%</div>
+      </div>
+      <div class="wc-row">
+        <div class="wc-rank">6</div><div class="wc-flag">🇧🇷</div>
+        <div class="wc-name">บราซิล</div>
+        <div class="wc-bar-track"><div class="wc-bar-fill" data-pct="7"></div></div>
+        <div class="wc-pct">~7%</div>
+      </div>
+      <div class="wc-row">
+        <div class="wc-rank">7</div><div class="wc-flag">🌍</div>
+        <div class="wc-name">ทีมอื่น ๆ</div>
+        <div class="wc-bar-track"><div class="wc-bar-fill" data-pct="10"></div></div>
+        <div class="wc-pct">~10%</div>
+      </div>
+      <div class="wc-foot">
+        ฝรั่งเศสเป็นเต็งหนึ่งชัดเจนหลังชนะรวดในช่วงต้นทัวร์นาเมนต์ ขณะที่อาร์เจนตินาแชมป์เก่าตามมาเป็นเต็งสอง ส่วนสหรัฐฯ เจ้าภาพและม้ามืดอย่างโมร็อกโก เคปเวิร์ด กำลังสร้างเซอร์ไพรส์ในรอบแรก ๆ ของทัวร์นาเมนต์นี้เช่นกัน
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ball">⚽</div>
+  ทำความเข้าใจกติกาไว้แค่นี้ก็เชียร์บอลโลกสนุกได้แล้ว — ดูจริงจะเห็นภาพเร็วกว่าอ่านเยอะ
+</footer>
+
+<script src="football101.js"></script>
+</body>
+</html>
