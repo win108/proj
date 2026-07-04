@@ -1,0 +1,13 @@
+{
+  "name": "skibidi-toilet-web",
+  "version": "1.0.0",
+  "description": "Interactive Skibidi Toilet Arcade Warzone Experience for Mobile & Desktop",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^4.4.9"
+  }
+}
